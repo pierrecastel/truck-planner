@@ -1,0 +1,131 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-order-heading" jhiTranslate="truckplannerApp.order.home.createOrEditLabel">Create or edit a Order</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!order.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="order.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.number" for="field_number">Number</label>
+                    <input type="number" class="form-control" name="number" id="field_number"
+                        [(ngModel)]="order.number" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.orderType" for="field_orderType">Order Type</label>
+                    <select class="form-control" name="orderType" [(ngModel)]="order.orderType" id="field_orderType" >
+                        <option value="NEW">{{'truckplannerApp.OrderType.NEW' | translate}}</option>
+                        <option value="SENT">{{'truckplannerApp.OrderType.SENT' | translate}}</option>
+                        <option value="CANCELED">{{'truckplannerApp.OrderType.CANCELED' | translate}}</option>
+                        <option value="MODIFIED">{{'truckplannerApp.OrderType.MODIFIED' | translate}}</option>
+                        <option value="CONFIRMED">{{'truckplannerApp.OrderType.CONFIRMED' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.orderStatus" for="field_orderStatus">Order Status</label>
+                    <select class="form-control" name="orderStatus" [(ngModel)]="order.orderStatus" id="field_orderStatus" >
+                        <option value="PRE_ADVICE">{{'truckplannerApp.OrderStatus.PRE_ADVICE' | translate}}</option>
+                        <option value="FINAL">{{'truckplannerApp.OrderStatus.FINAL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.requestTimestamp" for="field_requestTimestamp">Request Timestamp</label>
+                    <div class="input-group">
+                        <input id="field_requestTimestamp" type="text" class="form-control" name="requestTimestamp" ngbDatepicker  #requestTimestampDp="ngbDatepicker" [(ngModel)]="order.requestTimestamp"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="requestTimestampDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.origin" for="field_origin">Origin</label>
+                    <input type="text" class="form-control" name="origin" id="field_origin"
+                        [(ngModel)]="order.origin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.destination" for="field_destination">Destination</label>
+                    <input type="text" class="form-control" name="destination" id="field_destination"
+                        [(ngModel)]="order.destination" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                        [(ngModel)]="order.weight" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.volume" for="field_volume">Volume</label>
+                    <input type="number" class="form-control" name="volume" id="field_volume"
+                        [(ngModel)]="order.volume" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.truckingDate" for="field_truckingDate">Trucking Date</label>
+                    <div class="d-flex">
+                        <input id="field_truckingDate" type="datetime-local" class="form-control" name="truckingDate" [(ngModel)]="truckingDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.departureTimeLocal" for="field_departureTimeLocal">Departure Time Local</label>
+                    <div class="d-flex">
+                        <input id="field_departureTimeLocal" type="datetime-local" class="form-control" name="departureTimeLocal" [(ngModel)]="departureTimeLocal" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.arrivalTimeLocal" for="field_arrivalTimeLocal">Arrival Time Local</label>
+                    <div class="d-flex">
+                        <input id="field_arrivalTimeLocal" type="datetime-local" class="form-control" name="arrivalTimeLocal" [(ngModel)]="arrivalTimeLocal" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.mode" for="field_mode">Mode</label>
+                    <select class="form-control" name="mode" [(ngModel)]="order.mode" id="field_mode" >
+                        <option value="FTL">{{'truckplannerApp.Mode.FTL' | translate}}</option>
+                        <option value="LTL">{{'truckplannerApp.Mode.LTL' | translate}}</option>
+                        <option value="WEIGHT">{{'truckplannerApp.Mode.WEIGHT' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.requestedPositions" for="field_requestedPositions">Requested Positions</label>
+                    <input type="number" class="form-control" name="requestedPositions" id="field_requestedPositions"
+                        [(ngModel)]="order.requestedPositions" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.truck" for="field_truck">Truck</label>
+                    <select class="form-control" id="field_truck" name="truck" [(ngModel)]="order.truck">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="truckOption.id === order.truck?.id ? order.truck : truckOption" *ngFor="let truckOption of trucks; trackBy: trackTruckById">{{truckOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.delivery" for="field_delivery">Delivery</label>
+                    <select class="form-control" id="field_delivery" name="delivery" [(ngModel)]="order.delivery" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryOption.id === order.delivery?.id ? order.delivery : deliveryOption" *ngFor="let deliveryOption of deliveries; trackBy: trackDeliveryById">{{deliveryOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.truckCompany" for="field_truckCompany">Truck Company</label>
+                    <select class="form-control" id="field_truckCompany" name="truckCompany" [(ngModel)]="order.truckCompany" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="truckCompanyOption.id === order.truckCompany?.id ? order.truckCompany : truckCompanyOption" *ngFor="let truckCompanyOption of truckcompanies; trackBy: trackTruckCompanyById">{{truckCompanyOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

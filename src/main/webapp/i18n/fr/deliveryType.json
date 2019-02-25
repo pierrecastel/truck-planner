@@ -1,0 +1,9 @@
+{
+    "truckplannerApp": {
+        "DeliveryType": {
+            "null": "",
+            "DPU": "DPU",
+            "DTA": "DTA"
+        }
+    }
+}

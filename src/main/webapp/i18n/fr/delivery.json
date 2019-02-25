@@ -1,0 +1,24 @@
+{
+    "truckplannerApp": {
+        "delivery": {
+            "home": {
+                "title": "Deliveries",
+                "createLabel": "Créer un nouveau Delivery",
+                "createOrEditLabel": "Créer ou éditer un Delivery"
+            },
+            "created": "Un nouveau Delivery a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Delivery avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Delivery avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Delivery {{ id }} ?"
+            },
+            "detail": {
+                "title": "Delivery"
+            },
+            "type": "Type",
+            "agentName": "Agent Name",
+            "street": "Street",
+            "city": "City"
+        }
+    }
+}

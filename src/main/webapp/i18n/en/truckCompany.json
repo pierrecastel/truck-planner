@@ -1,0 +1,23 @@
+{
+    "truckplannerApp": {
+        "truckCompany": {
+            "home": {
+                "title": "Truck Companies",
+                "createLabel": "Create a new Truck Company",
+                "createOrEditLabel": "Create or edit a Truck Company"
+            },
+            "created": "A new Truck Company is created with identifier {{ param }}",
+            "updated": "A Truck Company is updated with identifier {{ param }}",
+            "deleted": "A Truck Company is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Truck Company {{ id }}?"
+            },
+            "detail": {
+                "title": "Truck Company"
+            },
+            "email": "Email",
+            "comunicationMode": "Comunication Mode",
+            "truck": "Truck"
+        }
+    }
+}

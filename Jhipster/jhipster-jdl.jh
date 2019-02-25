@@ -1,0 +1,111 @@
+entity Order {
+	number Long,
+	orderType OrderType,
+    orderStatus OrderStatus,
+    requestTimestamp LocalDate,
+    origin String,
+    destination String,
+    weight Double,
+    volume Double,
+    truckingDate ZonedDateTime,
+    departureTimeLocal ZonedDateTime,
+    arrivalTimeLocal ZonedDateTime,
+    mode Mode,
+    requestedPositions Integer
+}
+
+entity Delivery {
+	type DeliveryType,
+    agentName String,
+    street String,
+    city String
+}
+
+entity TruckCompany {
+	email String,
+    comunicationMode CommunicationMode 
+}
+
+entity Truck {
+	number String,
+    truckCountry String,
+    trailerCountry String,
+    truckLicense String,
+    trailerLicense String,
+    adr Boolean,
+    big Boolean,
+    rollerBed Boolean,
+    cool Cool,
+    minTemperature Integer,
+    maxTemperature Integer,
+    maximumHeight Integer,
+    topType TopType
+}
+
+entity Driver {
+	permit String,
+    firstName String,
+    lastName String
+}
+
+enum CommunicationMode {
+	API,
+	MAIL,
+    XML
+}
+
+enum DeliveryType {
+	DPU,
+    DTA
+}
+
+enum TopType {
+	SOFT,
+    HARD
+}
+
+enum Mode {
+	FTL,
+	LTL,
+	WEIGHT
+}
+
+enum Cool {
+   NO,
+   FNA,
+   FRC
+}
+
+enum OrderType {
+  NEW,
+  SENT,
+  CANCELED,
+  MODIFIED,
+  CONFIRMED
+}
+
+enum OrderStatus {
+	PRE_ADVICE,
+    FINAL
+}
+
+relationship ManyToOne {
+	Order{delivery} to Delivery
+}
+
+relationship OneToOne {
+	Order{truck} to Truck
+}
+
+relationship OneToMany {
+	TruckCompany{truck} to Truck
+}
+
+relationship ManyToOne {
+	Order{truckCompany} to TruckCompany
+}
+
+relationship ManyToOne {
+	Truck{driver} to Driver
+}
+

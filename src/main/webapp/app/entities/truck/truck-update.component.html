@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-truck-heading" jhiTranslate="truckplannerApp.truck.home.createOrEditLabel">Create or edit a Truck</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!truck.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="truck.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.number" for="field_number">Number</label>
+                    <input type="text" class="form-control" name="number" id="field_number"
+                        [(ngModel)]="truck.number" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.truckCountry" for="field_truckCountry">Truck Country</label>
+                    <input type="text" class="form-control" name="truckCountry" id="field_truckCountry"
+                        [(ngModel)]="truck.truckCountry" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.trailerCountry" for="field_trailerCountry">Trailer Country</label>
+                    <input type="text" class="form-control" name="trailerCountry" id="field_trailerCountry"
+                        [(ngModel)]="truck.trailerCountry" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.truckLicense" for="field_truckLicense">Truck License</label>
+                    <input type="text" class="form-control" name="truckLicense" id="field_truckLicense"
+                        [(ngModel)]="truck.truckLicense" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.trailerLicense" for="field_trailerLicense">Trailer License</label>
+                    <input type="text" class="form-control" name="trailerLicense" id="field_trailerLicense"
+                        [(ngModel)]="truck.trailerLicense" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.adr" for="field_adr">Adr</label>
+                    <input type="checkbox" class="form-control" name="adr" id="field_adr"
+                        [(ngModel)]="truck.adr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.big" for="field_big">Big</label>
+                    <input type="checkbox" class="form-control" name="big" id="field_big"
+                        [(ngModel)]="truck.big" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.rollerBed" for="field_rollerBed">Roller Bed</label>
+                    <input type="checkbox" class="form-control" name="rollerBed" id="field_rollerBed"
+                        [(ngModel)]="truck.rollerBed" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.cool" for="field_cool">Cool</label>
+                    <select class="form-control" name="cool" [(ngModel)]="truck.cool" id="field_cool" >
+                        <option value="NO">{{'truckplannerApp.Cool.NO' | translate}}</option>
+                        <option value="FNA">{{'truckplannerApp.Cool.FNA' | translate}}</option>
+                        <option value="FRC">{{'truckplannerApp.Cool.FRC' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.minTemperature" for="field_minTemperature">Min Temperature</label>
+                    <input type="number" class="form-control" name="minTemperature" id="field_minTemperature"
+                        [(ngModel)]="truck.minTemperature" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.maxTemperature" for="field_maxTemperature">Max Temperature</label>
+                    <input type="number" class="form-control" name="maxTemperature" id="field_maxTemperature"
+                        [(ngModel)]="truck.maxTemperature" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.maximumHeight" for="field_maximumHeight">Maximum Height</label>
+                    <input type="number" class="form-control" name="maximumHeight" id="field_maximumHeight"
+                        [(ngModel)]="truck.maximumHeight" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.topType" for="field_topType">Top Type</label>
+                    <select class="form-control" name="topType" [(ngModel)]="truck.topType" id="field_topType" >
+                        <option value="SOFT">{{'truckplannerApp.TopType.SOFT' | translate}}</option>
+                        <option value="HARD">{{'truckplannerApp.TopType.HARD' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.truckCompany" for="field_truckCompany">Truck Company</label>
+                    <select class="form-control" id="field_truckCompany" name="truckCompany" [(ngModel)]="truck.truckCompany" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="truckCompanyOption.id === truck.truckCompany?.id ? truck.truckCompany : truckCompanyOption" *ngFor="let truckCompanyOption of truckcompanies; trackBy: trackTruckCompanyById">{{truckCompanyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="truckplannerApp.truck.driver" for="field_driver">Driver</label>
+                    <select class="form-control" id="field_driver" name="driver" [(ngModel)]="truck.driver" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="driverOption.id === truck.driver?.id ? truck.driver : driverOption" *ngFor="let driverOption of drivers; trackBy: trackDriverById">{{driverOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

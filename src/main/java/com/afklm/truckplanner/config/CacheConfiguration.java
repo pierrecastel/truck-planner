@@ -38,6 +38,12 @@ public class CacheConfiguration {
             cm.createCache(com.afklm.truckplanner.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.afklm.truckplanner.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.afklm.truckplanner.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.afklm.truckplanner.domain.Order.class.getName(), jcacheConfiguration);
+            cm.createCache(com.afklm.truckplanner.domain.Delivery.class.getName(), jcacheConfiguration);
+            cm.createCache(com.afklm.truckplanner.domain.TruckCompany.class.getName(), jcacheConfiguration);
+            cm.createCache(com.afklm.truckplanner.domain.TruckCompany.class.getName() + ".trucks", jcacheConfiguration);
+            cm.createCache(com.afklm.truckplanner.domain.Truck.class.getName(), jcacheConfiguration);
+            cm.createCache(com.afklm.truckplanner.domain.Driver.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,32 @@
+{
+    "name": "Delivery",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "DeliveryType",
+            "fieldValues": "DPU,DTA"
+        },
+        {
+            "fieldName": "agentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "street",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190225144649",
+    "entityTableName": "delivery",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

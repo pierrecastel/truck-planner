@@ -1,0 +1,23 @@
+{
+    "truckplannerApp": {
+        "truckCompany": {
+            "home": {
+                "title": "TruckCompanies",
+                "createLabel": "Créer un nouveau Truck Company",
+                "createOrEditLabel": "Créer ou éditer un Truck Company"
+            },
+            "created": "Un nouveau Truck Company a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Truck Company avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Truck Company avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Truck Company {{ id }} ?"
+            },
+            "detail": {
+                "title": "Truck Company"
+            },
+            "email": "Email",
+            "comunicationMode": "Comunication Mode",
+            "truck": "Truck"
+        }
+    }
+}

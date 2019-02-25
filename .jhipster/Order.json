@@ -1,0 +1,93 @@
+{
+    "name": "Order",
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "orderType",
+            "fieldType": "OrderType",
+            "fieldValues": "NEW,SENT,CANCELED,MODIFIED,CONFIRMED"
+        },
+        {
+            "fieldName": "orderStatus",
+            "fieldType": "OrderStatus",
+            "fieldValues": "PRE_ADVICE,FINAL"
+        },
+        {
+            "fieldName": "requestTimestamp",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "origin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "destination",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "truckingDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "departureTimeLocal",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "arrivalTimeLocal",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "mode",
+            "fieldType": "Mode",
+            "fieldValues": "FTL,LTL,WEIGHT"
+        },
+        {
+            "fieldName": "requestedPositions",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "truck",
+            "otherEntityName": "truck",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "order"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "delivery",
+            "otherEntityName": "delivery",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "order"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "truckCompany",
+            "otherEntityName": "truckCompany",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "order"
+        }
+    ],
+    "changelogDate": "20190225144648",
+    "entityTableName": "order",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

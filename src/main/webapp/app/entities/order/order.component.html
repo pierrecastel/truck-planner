@@ -1,0 +1,96 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="truckplannerApp.order.home.title">Orders</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order" [routerLink]="['/order/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="truckplannerApp.order.home.createLabel">
+            Create new Order
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="orders">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.number">Number</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.orderType">Order Type</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.orderStatus">Order Status</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.requestTimestamp">Request Timestamp</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.origin">Origin</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.destination">Destination</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.weight">Weight</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.volume">Volume</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.truckingDate">Trucking Date</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.departureTimeLocal">Departure Time Local</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.arrivalTimeLocal">Arrival Time Local</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.mode">Mode</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.requestedPositions">Requested Positions</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.truck">Truck</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.delivery">Delivery</span></th>
+            <th><span jhiTranslate="truckplannerApp.order.truckCompany">Truck Company</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let order of orders ;trackBy: trackId">
+                <td><a [routerLink]="['/order', order.id, 'view' ]">{{order.id}}</a></td>
+                <td>{{order.number}}</td>
+                <td jhiTranslate="{{'truckplannerApp.OrderType.' + order.orderType}}">{{order.orderType}}</td>
+                <td jhiTranslate="{{'truckplannerApp.OrderStatus.' + order.orderStatus}}">{{order.orderStatus}}</td>
+                <td>{{order.requestTimestamp | date:'mediumDate'}}</td>
+                <td>{{order.origin}}</td>
+                <td>{{order.destination}}</td>
+                <td>{{order.weight}}</td>
+                <td>{{order.volume}}</td>
+                <td>{{order.truckingDate | date:'medium'}}</td>
+                <td>{{order.departureTimeLocal | date:'medium'}}</td>
+                <td>{{order.arrivalTimeLocal | date:'medium'}}</td>
+                <td jhiTranslate="{{'truckplannerApp.Mode.' + order.mode}}">{{order.mode}}</td>
+                <td>{{order.requestedPositions}}</td>
+                <td>
+                    <div *ngIf="order.truck">
+                        <a [routerLink]="['../truck', order.truck?.id, 'view' ]" >{{order.truck?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="order.delivery">
+                        <a [routerLink]="['../delivery', order.delivery?.id, 'view' ]" >{{order.delivery?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="order.truckCompany">
+                        <a [routerLink]="['../truck-company', order.truckCompany?.id, 'view' ]" >{{order.truckCompany?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/order', order.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/order', order.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'order', { outlets: { popup: order.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
