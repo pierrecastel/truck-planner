@@ -1,0 +1,38 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.afklm.truckplanner",
+            "nativeLanguage": "fr"
+        },
+        "jhipsterVersion": "5.8.1",
+        "applicationType": "monolith",
+        "baseName": "truckplanner",
+        "packageName": "com.afklm.truckplanner",
+        "packageFolder": "com/afklm/truckplanner",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "postgresql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NTgzZWY3YjhlMDhmYzNhMDY0YjBjODljMjUzYmE4MGE1Mzc0MDFiNGFjMjU5NzZkOTU5ZjVkYzEwMTYyYjc3ZjAzYTIwODEyY2M3MGVjMzc5YzhkZTMxNTYwZDlkYmVhZTg3MGM2NGViM2JjM2VhODljZTk1ZWEwYjc3Y2E4ZGY=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "fr",
+        "languages": ["fr", "en"]
+    }
+}
