@@ -4,6 +4,7 @@ import com.afklm.truckplanner.TruckplannerApp;
 
 import com.afklm.truckplanner.domain.Order;
 import com.afklm.truckplanner.repository.OrderRepository;
+import com.afklm.truckplanner.service.OrderService;
 import com.afklm.truckplanner.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -102,6 +103,9 @@ public class OrderResourceIntTest {
     @Autowired
     private Validator validator;
 
+    @Autowired
+    private OrderService orderService;
+
     private MockMvc restOrderMockMvc;
 
     private Order order;
@@ -109,7 +113,7 @@ public class OrderResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final OrderResource orderResource = new OrderResource(orderRepository);
+        final OrderResource orderResource = new OrderResource(orderRepository, orderService);
         this.restOrderMockMvc = MockMvcBuilders.standaloneSetup(orderResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

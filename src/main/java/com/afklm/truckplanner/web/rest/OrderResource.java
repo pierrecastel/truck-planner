@@ -1,6 +1,7 @@
 package com.afklm.truckplanner.web.rest;
 import com.afklm.truckplanner.domain.Order;
 import com.afklm.truckplanner.repository.OrderRepository;
+import com.afklm.truckplanner.service.OrderService;
 import com.afklm.truckplanner.web.rest.errors.BadRequestAlertException;
 import com.afklm.truckplanner.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -28,8 +29,11 @@ public class OrderResource {
 
     private final OrderRepository orderRepository;
 
-    public OrderResource(OrderRepository orderRepository) {
+    private final OrderService orderService;
+
+    public OrderResource(OrderRepository orderRepository, OrderService orderService) {
         this.orderRepository = orderRepository;
+        this.orderService = orderService;
     }
 
     /**
@@ -46,6 +50,7 @@ public class OrderResource {
             throw new BadRequestAlertException("A new order cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Order result = orderRepository.save(order);
+        orderService.notifyTruckCompany(order);
         return ResponseEntity.created(new URI("/api/orders/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
