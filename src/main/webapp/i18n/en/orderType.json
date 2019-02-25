@@ -1,0 +1,12 @@
+{
+    "truckplannerApp": {
+        "OrderType": {
+            "null": "",
+            "NEW": "NEW",
+            "SENT": "SENT",
+            "CANCELED": "CANCELED",
+            "MODIFIED": "MODIFIED",
+            "CONFIRMED": "CONFIRMED"
+        }
+    }
+}

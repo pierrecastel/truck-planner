@@ -1,0 +1,10 @@
+{
+    "truckplannerApp": {
+        "Mode": {
+            "null": "",
+            "FTL": "FTL",
+            "LTL": "LTL",
+            "WEIGHT": "WEIGHT"
+        }
+    }
+}

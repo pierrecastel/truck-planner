@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="truck">
+            <h2><span jhiTranslate="truckplannerApp.truck.detail.title">Truck</span> {{truck.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="truckplannerApp.truck.number">Number</span></dt>
+                <dd>
+                    <span>{{truck.number}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.truckCountry">Truck Country</span></dt>
+                <dd>
+                    <span>{{truck.truckCountry}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.trailerCountry">Trailer Country</span></dt>
+                <dd>
+                    <span>{{truck.trailerCountry}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.truckLicense">Truck License</span></dt>
+                <dd>
+                    <span>{{truck.truckLicense}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.trailerLicense">Trailer License</span></dt>
+                <dd>
+                    <span>{{truck.trailerLicense}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.adr">Adr</span></dt>
+                <dd>
+                    <span>{{truck.adr}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.big">Big</span></dt>
+                <dd>
+                    <span>{{truck.big}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.rollerBed">Roller Bed</span></dt>
+                <dd>
+                    <span>{{truck.rollerBed}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.cool">Cool</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'truckplannerApp.Cool.' + truck.cool}}">{{truck.cool}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.minTemperature">Min Temperature</span></dt>
+                <dd>
+                    <span>{{truck.minTemperature}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.maxTemperature">Max Temperature</span></dt>
+                <dd>
+                    <span>{{truck.maxTemperature}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.maximumHeight">Maximum Height</span></dt>
+                <dd>
+                    <span>{{truck.maximumHeight}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.topType">Top Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'truckplannerApp.TopType.' + truck.topType}}">{{truck.topType}}</span>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.truckCompany">Truck Company</span></dt>
+                <dd>
+                    <div *ngIf="truck.truckCompany">
+                        <a [routerLink]="['/truck-company', truck.truckCompany?.id, 'view']">{{truck.truckCompany?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="truckplannerApp.truck.driver">Driver</span></dt>
+                <dd>
+                    <div *ngIf="truck.driver">
+                        <a [routerLink]="['/driver', truck.driver?.id, 'view']">{{truck.driver?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/truck', truck.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

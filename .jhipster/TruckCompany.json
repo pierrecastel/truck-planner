@@ -1,0 +1,31 @@
+{
+    "name": "TruckCompany",
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comunicationMode",
+            "fieldType": "CommunicationMode",
+            "fieldValues": "API,MAIL,XML"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "truck",
+            "otherEntityName": "truck",
+            "otherEntityRelationshipName": "truckCompany"
+        }
+    ],
+    "changelogDate": "20190225144650",
+    "entityTableName": "truck_company",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

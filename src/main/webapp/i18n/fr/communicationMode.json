@@ -1,0 +1,10 @@
+{
+    "truckplannerApp": {
+        "CommunicationMode": {
+            "null": "",
+            "API": "API",
+            "MAIL": "MAIL",
+            "XML": "XML"
+        }
+    }
+}

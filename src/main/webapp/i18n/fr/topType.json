@@ -1,0 +1,9 @@
+{
+    "truckplannerApp": {
+        "TopType": {
+            "null": "",
+            "SOFT": "SOFT",
+            "HARD": "HARD"
+        }
+    }
+}

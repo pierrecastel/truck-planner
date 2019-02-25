@@ -1,0 +1,83 @@
+{
+    "name": "Truck",
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "truckCountry",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "trailerCountry",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "truckLicense",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "trailerLicense",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adr",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "big",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "rollerBed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cool",
+            "fieldType": "Cool",
+            "fieldValues": "NO,FNA,FRC"
+        },
+        {
+            "fieldName": "minTemperature",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxTemperature",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maximumHeight",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "topType",
+            "fieldType": "TopType",
+            "fieldValues": "SOFT,HARD"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "truckCompany",
+            "otherEntityName": "truckCompany",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "driver",
+            "otherEntityName": "driver",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "truck"
+        }
+    ],
+    "changelogDate": "20190225144651",
+    "entityTableName": "truck",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

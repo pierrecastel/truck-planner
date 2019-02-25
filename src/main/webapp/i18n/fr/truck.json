@@ -1,0 +1,35 @@
+{
+    "truckplannerApp": {
+        "truck": {
+            "home": {
+                "title": "Trucks",
+                "createLabel": "Créer un nouveau Truck",
+                "createOrEditLabel": "Créer ou éditer un Truck"
+            },
+            "created": "Un nouveau Truck a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Truck avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Truck avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Truck {{ id }} ?"
+            },
+            "detail": {
+                "title": "Truck"
+            },
+            "number": "Number",
+            "truckCountry": "Truck Country",
+            "trailerCountry": "Trailer Country",
+            "truckLicense": "Truck License",
+            "trailerLicense": "Trailer License",
+            "adr": "Adr",
+            "big": "Big",
+            "rollerBed": "Roller Bed",
+            "cool": "Cool",
+            "minTemperature": "Min Temperature",
+            "maxTemperature": "Max Temperature",
+            "maximumHeight": "Maximum Height",
+            "topType": "Top Type",
+            "truckCompany": "Truck Company",
+            "driver": "Driver"
+        }
+    }
+}

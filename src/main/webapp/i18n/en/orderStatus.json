@@ -1,0 +1,9 @@
+{
+    "truckplannerApp": {
+        "OrderStatus": {
+            "null": "",
+            "PRE_ADVICE": "PRE_ADVICE",
+            "FINAL": "FINAL"
+        }
+    }
+}

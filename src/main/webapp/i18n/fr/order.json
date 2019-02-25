@@ -1,0 +1,36 @@
+{
+    "truckplannerApp": {
+        "order": {
+            "home": {
+                "title": "Orders",
+                "createLabel": "Créer un nouveau Order",
+                "createOrEditLabel": "Créer ou éditer un Order"
+            },
+            "created": "Un nouveau Order a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Order avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Order avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Order {{ id }} ?"
+            },
+            "detail": {
+                "title": "Order"
+            },
+            "number": "Number",
+            "orderType": "Order Type",
+            "orderStatus": "Order Status",
+            "requestTimestamp": "Request Timestamp",
+            "origin": "Origin",
+            "destination": "Destination",
+            "weight": "Weight",
+            "volume": "Volume",
+            "truckingDate": "Trucking Date",
+            "departureTimeLocal": "Departure Time Local",
+            "arrivalTimeLocal": "Arrival Time Local",
+            "mode": "Mode",
+            "requestedPositions": "Requested Positions",
+            "truck": "Truck",
+            "delivery": "Delivery",
+            "truckCompany": "Truck Company"
+        }
+    }
+}

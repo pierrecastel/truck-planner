@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Order.
+    -->
+    <changeSet id="20190225144648-1" author="jhipster">
+        <createTable tableName="jhi_order">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="jhi_number" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="order_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="order_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="request_timestamp" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="origin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="destination" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="weight" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="volume" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="trucking_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="departure_time_local" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="arrival_time_local" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_mode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="requested_positions" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="truck_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_jhi_order_truck_id" />
+            </column>
+            <column name="delivery_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="truck_company_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="jhi_order" columnName="trucking_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="jhi_order" columnName="departure_time_local" columnDataType="datetime"/>
+        <dropDefaultValue tableName="jhi_order" columnName="arrival_time_local" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

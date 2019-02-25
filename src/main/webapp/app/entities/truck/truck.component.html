@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="truckplannerApp.truck.home.title">Trucks</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-truck" [routerLink]="['/truck/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="truckplannerApp.truck.home.createLabel">
+            Create new Truck
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="trucks">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.number">Number</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.truckCountry">Truck Country</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.trailerCountry">Trailer Country</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.truckLicense">Truck License</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.trailerLicense">Trailer License</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.adr">Adr</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.big">Big</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.rollerBed">Roller Bed</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.cool">Cool</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.minTemperature">Min Temperature</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.maxTemperature">Max Temperature</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.maximumHeight">Maximum Height</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.topType">Top Type</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.truckCompany">Truck Company</span></th>
+            <th><span jhiTranslate="truckplannerApp.truck.driver">Driver</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let truck of trucks ;trackBy: trackId">
+                <td><a [routerLink]="['/truck', truck.id, 'view' ]">{{truck.id}}</a></td>
+                <td>{{truck.number}}</td>
+                <td>{{truck.truckCountry}}</td>
+                <td>{{truck.trailerCountry}}</td>
+                <td>{{truck.truckLicense}}</td>
+                <td>{{truck.trailerLicense}}</td>
+                <td>{{truck.adr}}</td>
+                <td>{{truck.big}}</td>
+                <td>{{truck.rollerBed}}</td>
+                <td jhiTranslate="{{'truckplannerApp.Cool.' + truck.cool}}">{{truck.cool}}</td>
+                <td>{{truck.minTemperature}}</td>
+                <td>{{truck.maxTemperature}}</td>
+                <td>{{truck.maximumHeight}}</td>
+                <td jhiTranslate="{{'truckplannerApp.TopType.' + truck.topType}}">{{truck.topType}}</td>
+                <td>
+                    <div *ngIf="truck.truckCompany">
+                        <a [routerLink]="['../truck-company', truck.truckCompany?.id, 'view' ]" >{{truck.truckCompany?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="truck.driver">
+                        <a [routerLink]="['../driver', truck.driver?.id, 'view' ]" >{{truck.driver?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/truck', truck.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/truck', truck.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'truck', { outlets: { popup: truck.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
