@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneOffset;
@@ -58,8 +57,8 @@ public class OrderResourceIntTest {
     private static final OrderStatus DEFAULT_ORDER_STATUS = OrderStatus.PRE_ADVICE;
     private static final OrderStatus UPDATED_ORDER_STATUS = OrderStatus.FINAL;
 
-    private static final LocalDate DEFAULT_REQUEST_TIMESTAMP = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_REQUEST_TIMESTAMP = LocalDate.now(ZoneId.systemDefault());
+    private static final ZonedDateTime DEFAULT_REQUEST_TIMESTAMP = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_REQUEST_TIMESTAMP = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     private static final String DEFAULT_ORIGIN = "AAAAAAAAAA";
     private static final String UPDATED_ORIGIN = "BBBBBBBBBB";
@@ -72,9 +71,6 @@ public class OrderResourceIntTest {
 
     private static final Double DEFAULT_VOLUME = 1D;
     private static final Double UPDATED_VOLUME = 2D;
-
-    private static final ZonedDateTime DEFAULT_TRUCKING_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_TRUCKING_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     private static final ZonedDateTime DEFAULT_DEPARTURE_TIME_LOCAL = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_DEPARTURE_TIME_LOCAL = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -138,7 +134,6 @@ public class OrderResourceIntTest {
             .destination(DEFAULT_DESTINATION)
             .weight(DEFAULT_WEIGHT)
             .volume(DEFAULT_VOLUME)
-            .truckingDate(DEFAULT_TRUCKING_DATE)
             .departureTimeLocal(DEFAULT_DEPARTURE_TIME_LOCAL)
             .arrivalTimeLocal(DEFAULT_ARRIVAL_TIME_LOCAL)
             .mode(DEFAULT_MODE)
@@ -174,7 +169,6 @@ public class OrderResourceIntTest {
         assertThat(testOrder.getDestination()).isEqualTo(DEFAULT_DESTINATION);
         assertThat(testOrder.getWeight()).isEqualTo(DEFAULT_WEIGHT);
         assertThat(testOrder.getVolume()).isEqualTo(DEFAULT_VOLUME);
-        assertThat(testOrder.getTruckingDate()).isEqualTo(DEFAULT_TRUCKING_DATE);
         assertThat(testOrder.getDepartureTimeLocal()).isEqualTo(DEFAULT_DEPARTURE_TIME_LOCAL);
         assertThat(testOrder.getArrivalTimeLocal()).isEqualTo(DEFAULT_ARRIVAL_TIME_LOCAL);
         assertThat(testOrder.getMode()).isEqualTo(DEFAULT_MODE);
@@ -214,12 +208,11 @@ public class OrderResourceIntTest {
             .andExpect(jsonPath("$.[*].number").value(hasItem(DEFAULT_NUMBER.intValue())))
             .andExpect(jsonPath("$.[*].orderType").value(hasItem(DEFAULT_ORDER_TYPE.toString())))
             .andExpect(jsonPath("$.[*].orderStatus").value(hasItem(DEFAULT_ORDER_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].requestTimestamp").value(hasItem(DEFAULT_REQUEST_TIMESTAMP.toString())))
+            .andExpect(jsonPath("$.[*].requestTimestamp").value(hasItem(sameInstant(DEFAULT_REQUEST_TIMESTAMP))))
             .andExpect(jsonPath("$.[*].origin").value(hasItem(DEFAULT_ORIGIN.toString())))
             .andExpect(jsonPath("$.[*].destination").value(hasItem(DEFAULT_DESTINATION.toString())))
             .andExpect(jsonPath("$.[*].weight").value(hasItem(DEFAULT_WEIGHT.doubleValue())))
             .andExpect(jsonPath("$.[*].volume").value(hasItem(DEFAULT_VOLUME.doubleValue())))
-            .andExpect(jsonPath("$.[*].truckingDate").value(hasItem(sameInstant(DEFAULT_TRUCKING_DATE))))
             .andExpect(jsonPath("$.[*].departureTimeLocal").value(hasItem(sameInstant(DEFAULT_DEPARTURE_TIME_LOCAL))))
             .andExpect(jsonPath("$.[*].arrivalTimeLocal").value(hasItem(sameInstant(DEFAULT_ARRIVAL_TIME_LOCAL))))
             .andExpect(jsonPath("$.[*].mode").value(hasItem(DEFAULT_MODE.toString())))
@@ -240,12 +233,11 @@ public class OrderResourceIntTest {
             .andExpect(jsonPath("$.number").value(DEFAULT_NUMBER.intValue()))
             .andExpect(jsonPath("$.orderType").value(DEFAULT_ORDER_TYPE.toString()))
             .andExpect(jsonPath("$.orderStatus").value(DEFAULT_ORDER_STATUS.toString()))
-            .andExpect(jsonPath("$.requestTimestamp").value(DEFAULT_REQUEST_TIMESTAMP.toString()))
+            .andExpect(jsonPath("$.requestTimestamp").value(sameInstant(DEFAULT_REQUEST_TIMESTAMP)))
             .andExpect(jsonPath("$.origin").value(DEFAULT_ORIGIN.toString()))
             .andExpect(jsonPath("$.destination").value(DEFAULT_DESTINATION.toString()))
             .andExpect(jsonPath("$.weight").value(DEFAULT_WEIGHT.doubleValue()))
             .andExpect(jsonPath("$.volume").value(DEFAULT_VOLUME.doubleValue()))
-            .andExpect(jsonPath("$.truckingDate").value(sameInstant(DEFAULT_TRUCKING_DATE)))
             .andExpect(jsonPath("$.departureTimeLocal").value(sameInstant(DEFAULT_DEPARTURE_TIME_LOCAL)))
             .andExpect(jsonPath("$.arrivalTimeLocal").value(sameInstant(DEFAULT_ARRIVAL_TIME_LOCAL)))
             .andExpect(jsonPath("$.mode").value(DEFAULT_MODE.toString()))
@@ -281,7 +273,6 @@ public class OrderResourceIntTest {
             .destination(UPDATED_DESTINATION)
             .weight(UPDATED_WEIGHT)
             .volume(UPDATED_VOLUME)
-            .truckingDate(UPDATED_TRUCKING_DATE)
             .departureTimeLocal(UPDATED_DEPARTURE_TIME_LOCAL)
             .arrivalTimeLocal(UPDATED_ARRIVAL_TIME_LOCAL)
             .mode(UPDATED_MODE)
@@ -304,7 +295,6 @@ public class OrderResourceIntTest {
         assertThat(testOrder.getDestination()).isEqualTo(UPDATED_DESTINATION);
         assertThat(testOrder.getWeight()).isEqualTo(UPDATED_WEIGHT);
         assertThat(testOrder.getVolume()).isEqualTo(UPDATED_VOLUME);
-        assertThat(testOrder.getTruckingDate()).isEqualTo(UPDATED_TRUCKING_DATE);
         assertThat(testOrder.getDepartureTimeLocal()).isEqualTo(UPDATED_DEPARTURE_TIME_LOCAL);
         assertThat(testOrder.getArrivalTimeLocal()).isEqualTo(UPDATED_ARRIVAL_TIME_LOCAL);
         assertThat(testOrder.getMode()).isEqualTo(UPDATED_MODE);

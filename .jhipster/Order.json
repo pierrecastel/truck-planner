@@ -17,7 +17,7 @@
         },
         {
             "fieldName": "requestTimestamp",
-            "fieldType": "LocalDate"
+            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "origin",
@@ -34,10 +34,6 @@
         {
             "fieldName": "volume",
             "fieldType": "Double"
-        },
-        {
-            "fieldName": "truckingDate",
-            "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "departureTimeLocal",

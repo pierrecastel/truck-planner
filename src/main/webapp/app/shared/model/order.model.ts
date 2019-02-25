@@ -32,7 +32,6 @@ export interface IOrder {
     destination?: string;
     weight?: number;
     volume?: number;
-    truckingDate?: Moment;
     departureTimeLocal?: Moment;
     arrivalTimeLocal?: Moment;
     mode?: Mode;
@@ -53,7 +52,6 @@ export class Order implements IOrder {
         public destination?: string,
         public weight?: number,
         public volume?: number,
-        public truckingDate?: Moment,
         public departureTimeLocal?: Moment,
         public arrivalTimeLocal?: Moment,
         public mode?: Mode,

@@ -2,12 +2,11 @@ entity Order {
 	number Long,
 	orderType OrderType,
     orderStatus OrderStatus,
-    requestTimestamp LocalDate,
+    requestTimestamp ZonedDateTime,
     origin String,
     destination String,
     weight Double,
     volume Double,
-    truckingDate ZonedDateTime,
     departureTimeLocal ZonedDateTime,
     arrivalTimeLocal ZonedDateTime,
     mode Mode,
@@ -23,7 +22,7 @@ entity Delivery {
 
 entity TruckCompany {
 	email String,
-    comunicationMode CommunicationMode 
+    comunicationMode CommunicationMode
 }
 
 entity Truck {

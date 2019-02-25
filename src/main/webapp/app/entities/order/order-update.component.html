@@ -33,12 +33,9 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="truckplannerApp.order.requestTimestamp" for="field_requestTimestamp">Request Timestamp</label>
-                    <div class="input-group">
-                        <input id="field_requestTimestamp" type="text" class="form-control" name="requestTimestamp" ngbDatepicker  #requestTimestampDp="ngbDatepicker" [(ngModel)]="order.requestTimestamp"
+                    <div class="d-flex">
+                        <input id="field_requestTimestamp" type="datetime-local" class="form-control" name="requestTimestamp" [(ngModel)]="requestTimestamp" placeholder="YYYY-MM-DD HH:mm"
                         />
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="requestTimestampDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,13 +57,6 @@
                     <label class="form-control-label" jhiTranslate="truckplannerApp.order.volume" for="field_volume">Volume</label>
                     <input type="number" class="form-control" name="volume" id="field_volume"
                         [(ngModel)]="order.volume" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="truckplannerApp.order.truckingDate" for="field_truckingDate">Trucking Date</label>
-                    <div class="d-flex">
-                        <input id="field_truckingDate" type="datetime-local" class="form-control" name="truckingDate" [(ngModel)]="truckingDate" placeholder="YYYY-MM-DD HH:mm"
-                        />
-                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="truckplannerApp.order.departureTimeLocal" for="field_departureTimeLocal">Departure Time Local</label>

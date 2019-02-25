@@ -8,7 +8,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
@@ -45,7 +44,7 @@ public class Order implements Serializable {
     private OrderStatus orderStatus;
 
     @Column(name = "request_timestamp")
-    private LocalDate requestTimestamp;
+    private ZonedDateTime requestTimestamp;
 
     @Column(name = "origin")
     private String origin;
@@ -58,9 +57,6 @@ public class Order implements Serializable {
 
     @Column(name = "volume")
     private Double volume;
-
-    @Column(name = "trucking_date")
-    private ZonedDateTime truckingDate;
 
     @Column(name = "departure_time_local")
     private ZonedDateTime departureTimeLocal;
@@ -135,16 +131,16 @@ public class Order implements Serializable {
         this.orderStatus = orderStatus;
     }
 
-    public LocalDate getRequestTimestamp() {
+    public ZonedDateTime getRequestTimestamp() {
         return requestTimestamp;
     }
 
-    public Order requestTimestamp(LocalDate requestTimestamp) {
+    public Order requestTimestamp(ZonedDateTime requestTimestamp) {
         this.requestTimestamp = requestTimestamp;
         return this;
     }
 
-    public void setRequestTimestamp(LocalDate requestTimestamp) {
+    public void setRequestTimestamp(ZonedDateTime requestTimestamp) {
         this.requestTimestamp = requestTimestamp;
     }
 
@@ -198,19 +194,6 @@ public class Order implements Serializable {
 
     public void setVolume(Double volume) {
         this.volume = volume;
-    }
-
-    public ZonedDateTime getTruckingDate() {
-        return truckingDate;
-    }
-
-    public Order truckingDate(ZonedDateTime truckingDate) {
-        this.truckingDate = truckingDate;
-        return this;
-    }
-
-    public void setTruckingDate(ZonedDateTime truckingDate) {
-        this.truckingDate = truckingDate;
     }
 
     public ZonedDateTime getDepartureTimeLocal() {
@@ -337,7 +320,6 @@ public class Order implements Serializable {
             ", destination='" + getDestination() + "'" +
             ", weight=" + getWeight() +
             ", volume=" + getVolume() +
-            ", truckingDate='" + getTruckingDate() + "'" +
             ", departureTimeLocal='" + getDepartureTimeLocal() + "'" +
             ", arrivalTimeLocal='" + getArrivalTimeLocal() + "'" +
             ", mode='" + getMode() + "'" +

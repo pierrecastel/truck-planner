@@ -23,7 +23,6 @@
             <th><span jhiTranslate="truckplannerApp.order.destination">Destination</span></th>
             <th><span jhiTranslate="truckplannerApp.order.weight">Weight</span></th>
             <th><span jhiTranslate="truckplannerApp.order.volume">Volume</span></th>
-            <th><span jhiTranslate="truckplannerApp.order.truckingDate">Trucking Date</span></th>
             <th><span jhiTranslate="truckplannerApp.order.departureTimeLocal">Departure Time Local</span></th>
             <th><span jhiTranslate="truckplannerApp.order.arrivalTimeLocal">Arrival Time Local</span></th>
             <th><span jhiTranslate="truckplannerApp.order.mode">Mode</span></th>
@@ -40,12 +39,11 @@
                 <td>{{order.number}}</td>
                 <td jhiTranslate="{{'truckplannerApp.OrderType.' + order.orderType}}">{{order.orderType}}</td>
                 <td jhiTranslate="{{'truckplannerApp.OrderStatus.' + order.orderStatus}}">{{order.orderStatus}}</td>
-                <td>{{order.requestTimestamp | date:'mediumDate'}}</td>
+                <td>{{order.requestTimestamp | date:'medium'}}</td>
                 <td>{{order.origin}}</td>
                 <td>{{order.destination}}</td>
                 <td>{{order.weight}}</td>
                 <td>{{order.volume}}</td>
-                <td>{{order.truckingDate | date:'medium'}}</td>
                 <td>{{order.departureTimeLocal | date:'medium'}}</td>
                 <td>{{order.arrivalTimeLocal | date:'medium'}}</td>
                 <td jhiTranslate="{{'truckplannerApp.Mode.' + order.mode}}">{{order.mode}}</td>
