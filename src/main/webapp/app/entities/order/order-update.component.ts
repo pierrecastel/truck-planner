@@ -28,8 +28,7 @@ export class OrderUpdateComponent implements OnInit {
     deliveries: IDelivery[];
 
     truckcompanies: ITruckCompany[];
-    requestTimestampDp: any;
-    truckingDate: string;
+    requestTimestamp: string;
     departureTimeLocal: string;
     arrivalTimeLocal: string;
 
@@ -46,7 +45,7 @@ export class OrderUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ order }) => {
             this.order = order;
-            this.truckingDate = this.order.truckingDate != null ? this.order.truckingDate.format(DATE_TIME_FORMAT) : null;
+            this.requestTimestamp = this.order.requestTimestamp != null ? this.order.requestTimestamp.format(DATE_TIME_FORMAT) : null;
             this.departureTimeLocal = this.order.departureTimeLocal != null ? this.order.departureTimeLocal.format(DATE_TIME_FORMAT) : null;
             this.arrivalTimeLocal = this.order.arrivalTimeLocal != null ? this.order.arrivalTimeLocal.format(DATE_TIME_FORMAT) : null;
         });
@@ -97,7 +96,7 @@ export class OrderUpdateComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        this.order.truckingDate = this.truckingDate != null ? moment(this.truckingDate, DATE_TIME_FORMAT) : null;
+        this.order.requestTimestamp = this.requestTimestamp != null ? moment(this.requestTimestamp, DATE_TIME_FORMAT) : null;
         this.order.departureTimeLocal = this.departureTimeLocal != null ? moment(this.departureTimeLocal, DATE_TIME_FORMAT) : null;
         this.order.arrivalTimeLocal = this.arrivalTimeLocal != null ? moment(this.arrivalTimeLocal, DATE_TIME_FORMAT) : null;
         if (this.order.id !== undefined) {

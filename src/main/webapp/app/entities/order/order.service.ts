@@ -51,9 +51,7 @@ export class OrderService {
 
     protected convertDateFromClient(order: IOrder): IOrder {
         const copy: IOrder = Object.assign({}, order, {
-            requestTimestamp:
-                order.requestTimestamp != null && order.requestTimestamp.isValid() ? order.requestTimestamp.format(DATE_FORMAT) : null,
-            truckingDate: order.truckingDate != null && order.truckingDate.isValid() ? order.truckingDate.toJSON() : null,
+            requestTimestamp: order.requestTimestamp != null && order.requestTimestamp.isValid() ? order.requestTimestamp.toJSON() : null,
             departureTimeLocal:
                 order.departureTimeLocal != null && order.departureTimeLocal.isValid() ? order.departureTimeLocal.toJSON() : null,
             arrivalTimeLocal: order.arrivalTimeLocal != null && order.arrivalTimeLocal.isValid() ? order.arrivalTimeLocal.toJSON() : null
@@ -64,7 +62,6 @@ export class OrderService {
     protected convertDateFromServer(res: EntityResponseType): EntityResponseType {
         if (res.body) {
             res.body.requestTimestamp = res.body.requestTimestamp != null ? moment(res.body.requestTimestamp) : null;
-            res.body.truckingDate = res.body.truckingDate != null ? moment(res.body.truckingDate) : null;
             res.body.departureTimeLocal = res.body.departureTimeLocal != null ? moment(res.body.departureTimeLocal) : null;
             res.body.arrivalTimeLocal = res.body.arrivalTimeLocal != null ? moment(res.body.arrivalTimeLocal) : null;
         }
@@ -75,7 +72,6 @@ export class OrderService {
         if (res.body) {
             res.body.forEach((order: IOrder) => {
                 order.requestTimestamp = order.requestTimestamp != null ? moment(order.requestTimestamp) : null;
-                order.truckingDate = order.truckingDate != null ? moment(order.truckingDate) : null;
                 order.departureTimeLocal = order.departureTimeLocal != null ? moment(order.departureTimeLocal) : null;
                 order.arrivalTimeLocal = order.arrivalTimeLocal != null ? moment(order.arrivalTimeLocal) : null;
             });

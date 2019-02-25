@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import * as moment from 'moment';
-import { DATE_FORMAT, DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
+import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { OrderService } from 'app/entities/order/order.service';
 import { IOrder, Order, OrderType, OrderStatus, Mode } from 'app/shared/model/order.model';
 
@@ -37,7 +37,6 @@ describe('Service Tests', () => {
                 0,
                 currentDate,
                 currentDate,
-                currentDate,
                 Mode.FTL,
                 0
             );
@@ -47,8 +46,7 @@ describe('Service Tests', () => {
             it('should find an element', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        requestTimestamp: currentDate.format(DATE_FORMAT),
-                        truckingDate: currentDate.format(DATE_TIME_FORMAT),
+                        requestTimestamp: currentDate.format(DATE_TIME_FORMAT),
                         departureTimeLocal: currentDate.format(DATE_TIME_FORMAT),
                         arrivalTimeLocal: currentDate.format(DATE_TIME_FORMAT)
                     },
@@ -67,8 +65,7 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         id: 0,
-                        requestTimestamp: currentDate.format(DATE_FORMAT),
-                        truckingDate: currentDate.format(DATE_TIME_FORMAT),
+                        requestTimestamp: currentDate.format(DATE_TIME_FORMAT),
                         departureTimeLocal: currentDate.format(DATE_TIME_FORMAT),
                         arrivalTimeLocal: currentDate.format(DATE_TIME_FORMAT)
                     },
@@ -77,7 +74,6 @@ describe('Service Tests', () => {
                 const expected = Object.assign(
                     {
                         requestTimestamp: currentDate,
-                        truckingDate: currentDate,
                         departureTimeLocal: currentDate,
                         arrivalTimeLocal: currentDate
                     },
@@ -97,12 +93,11 @@ describe('Service Tests', () => {
                         number: 1,
                         orderType: 'BBBBBB',
                         orderStatus: 'BBBBBB',
-                        requestTimestamp: currentDate.format(DATE_FORMAT),
+                        requestTimestamp: currentDate.format(DATE_TIME_FORMAT),
                         origin: 'BBBBBB',
                         destination: 'BBBBBB',
                         weight: 1,
                         volume: 1,
-                        truckingDate: currentDate.format(DATE_TIME_FORMAT),
                         departureTimeLocal: currentDate.format(DATE_TIME_FORMAT),
                         arrivalTimeLocal: currentDate.format(DATE_TIME_FORMAT),
                         mode: 'BBBBBB',
@@ -114,7 +109,6 @@ describe('Service Tests', () => {
                 const expected = Object.assign(
                     {
                         requestTimestamp: currentDate,
-                        truckingDate: currentDate,
                         departureTimeLocal: currentDate,
                         arrivalTimeLocal: currentDate
                     },
@@ -134,12 +128,11 @@ describe('Service Tests', () => {
                         number: 1,
                         orderType: 'BBBBBB',
                         orderStatus: 'BBBBBB',
-                        requestTimestamp: currentDate.format(DATE_FORMAT),
+                        requestTimestamp: currentDate.format(DATE_TIME_FORMAT),
                         origin: 'BBBBBB',
                         destination: 'BBBBBB',
                         weight: 1,
                         volume: 1,
-                        truckingDate: currentDate.format(DATE_TIME_FORMAT),
                         departureTimeLocal: currentDate.format(DATE_TIME_FORMAT),
                         arrivalTimeLocal: currentDate.format(DATE_TIME_FORMAT),
                         mode: 'BBBBBB',
@@ -150,7 +143,6 @@ describe('Service Tests', () => {
                 const expected = Object.assign(
                     {
                         requestTimestamp: currentDate,
-                        truckingDate: currentDate,
                         departureTimeLocal: currentDate,
                         arrivalTimeLocal: currentDate
                     },

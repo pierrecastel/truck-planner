@@ -23,6 +23,10 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'driver',
                 loadChildren: './driver/driver.module#TruckplannerDriverModule'
+            },
+            {
+                path: 'order',
+                loadChildren: './order/order.module#TruckplannerOrderModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

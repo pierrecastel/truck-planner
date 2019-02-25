@@ -23,7 +23,6 @@
             "destination": "Destination",
             "weight": "Weight",
             "volume": "Volume",
-            "truckingDate": "Trucking Date",
             "departureTimeLocal": "Departure Time Local",
             "arrivalTimeLocal": "Arrival Time Local",
             "mode": "Mode",

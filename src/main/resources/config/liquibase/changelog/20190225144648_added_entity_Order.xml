@@ -33,7 +33,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="request_timestamp" type="date">
+            <column name="request_timestamp" type="datetime">
                 <constraints nullable="true" />
             </column>
 
@@ -50,10 +50,6 @@
             </column>
 
             <column name="volume" type="double">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="trucking_date" type="datetime">
                 <constraints nullable="true" />
             </column>
 
@@ -85,7 +81,7 @@
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="jhi_order" columnName="trucking_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="jhi_order" columnName="request_timestamp" columnDataType="datetime"/>
         <dropDefaultValue tableName="jhi_order" columnName="departure_time_local" columnDataType="datetime"/>
         <dropDefaultValue tableName="jhi_order" columnName="arrival_time_local" columnDataType="datetime"/>
         
